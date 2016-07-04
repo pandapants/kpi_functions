@@ -1,0 +1,43 @@
+{
+  "reportingPeriods": [
+    {
+      "begin": "2016-03-01",
+      "end": "2016-02-31"
+    },
+    {
+      "begin": "2016-04-01",
+      "end": "2016-04-30"
+    },
+    {
+      "begin": "2016-05-01",
+      "end": "2016-05-31"
+    }
+  ],
+  "goals": [
+    {
+      "description": "To improve the visibility of the product",
+      "KPIs": [
+        {
+          "type": "Total engagement",
+          "totalTarget": 120000
+        },
+        {
+          "type": "Total shares",
+          "totalTarget": 90000
+        },
+        {
+          "type": "Total likes",
+          "totalTarget": 130000
+        },
+        {
+          "type": "Total reach",
+          "totalTarget": 150000
+        },
+        {
+          "type": "Total followers",
+          "totalTarget": 960000
+        }
+      ]
+    }
+  ]
+}
