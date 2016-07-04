@@ -1,0 +1,90 @@
+{
+  "facebook": {
+    "comments": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7ea7","network":"facebook","metric":"comments","date":1466380800000,"value":228,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8807","network":"facebook","metric":"comments","date":1466380800000,"value":131,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a9167","network":"facebook","metric":"comments","date":1466380800000,"value":282,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "followers": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea6","network":"facebook","metric":"followers","date":1466380800000,"value":188,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8806","network":"facebook","metric":"followers","date":1466380800000,"value":189,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9166","network":"facebook","metric":"followers","date":1466380800000,"value":82,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "likes": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7ea8","network":"facebook","metric":"likes","date":1466380800000,"value":156,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8808","network":"facebook","metric":"likes","date":1466380800000,"value":209,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a9168","network":"facebook","metric":"likes","date":1466380800000,"value":222,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "reach": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7ea9","network":"facebook","metric":"reach","date":1466380800000,"value":65897,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8809","network":"facebook","metric":"reach","date":1466380800000,"value":50328,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a9169","network":"facebook","metric":"reach","date":1466380800000,"value":70801,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "shares": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7eaa","network":"facebook","metric":"shares","date":1466380800000,"value":178,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a880a","network":"facebook","metric":"shares","date":1466380800000,"value":199,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a916a","network":"facebook","metric":"shares","date":1466380800000,"value":112,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "totalFollowers": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea5","network":"facebook","metric":"total_followers","date":1466380800000,"value":50976,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8805","network":"facebook","metric":"total_followers","date":1466380800000,"value":47935,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9165","network":"facebook","metric":"total_followers","date":1466380800000,"value":53327,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    }
+  },
+  "twitter": {
+    "comments": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea1","network":"twitter","metric":"comments","date":1466380800000,"value":160,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8801","network":"twitter","metric":"comments","date":1466380800000,"value":251,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9161","network":"twitter","metric":"comments","date":1466380800000,"value":280,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "followers": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea2","network":"twitter","metric":"followers","date":1466380800000,"value":66,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8802","network":"twitter","metric":"followers","date":1466380800000,"value":195,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9162","network":"twitter","metric":"followers","date":1466380800000,"value":48,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "likes": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea3","network":"twitter","metric":"likes","date":1466380800000,"value":143,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8803","network":"twitter","metric":"likes","date":1466380800000,"value":203,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9163","network":"twitter","metric":"likes","date":1466380800000,"value":299,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "reach": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea4","network":"twitter","metric":"reach","date":1466380800000,"value":66213,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8804","network":"twitter","metric":"reach","date":1466380800000,"value":68658,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9164","network":"twitter","metric":"reach","date":1466380800000,"value":51869,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "shares": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7ea0","network":"twitter","metric":"shares","date":1466380800000,"value":247,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a8800","network":"twitter","metric":"shares","date":1466380800000,"value":244,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a9160","network":"twitter","metric":"shares","date":1466380800000,"value":214,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "totalFollowers": {
+      "dailyData": [
+        {"_id":"577646656c090a1eda2a7e9f","network":"twitter","metric":"total_followers","date":1466380800000,"value":44820,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a87ff","network":"twitter","metric":"total_followers","date":1466380800000,"value":67811,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647ce6c090a1eda2a915f","network":"twitter","metric":"total_followers","date":1466380800000,"value":72618,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    }
+  },
+  "instagram": {
+    "comments": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7eac","network":"instagram","metric":"comments","date":1466380800000,"value":149,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a880c","network":"instagram","metric":"comments","date":1466380800000,"value":148,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a916c","network":"instagram","metric":"comments","date":1466380800000,"value":131,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "followers": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7ead","network":"instagram","metric":"followers","date":1466380800000,"value":79,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471b6c090a1eda2a880d","network":"instagram","metric":"followers","date":1466380800000,"value":114,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a916d","network":"instagram","metric":"followers","date":1466380800000,"value":48,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "likes": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7eae","network":"instagram","metric":"likes","date":1466380800000,"value":259,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471b6c090a1eda2a880e","network":"instagram","metric":"likes","date":1466380800000,"value":204,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a916e","network":"instagram","metric":"likes","date":1466380800000,"value":112,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    },
+    "totalFollowers": {
+      "dailyData": [
+        {"_id":"577646666c090a1eda2a7eab","network":"instagram","metric":"total_followers","date":1466380800000,"value":48828,"client_id":"5775369224e1c7ddcfbf5350","__v":0},{"_id":"5776471a6c090a1eda2a880b","network":"instagram","metric":"total_followers","date":1466380800000,"value":41695,"client_id":"577536b024e1c7ddcfbf5351","__v":0},{"_id":"577647cf6c090a1eda2a916b","network":"instagram","metric":"total_followers","date":1466380800000,"value":72551,"client_id":"577536be24e1c7ddcfbf5352","__v":0}
+      ]
+    }
+  }
+}
+
+
