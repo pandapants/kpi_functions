@@ -109,4 +109,20 @@ describe('format', function () {
       expect(format.getYTDPercentage(3250, 2000)).to.eql(61.5);
     });
   });
+  describe('getTotalPercentage', function () {
+    var totalTarget = 200000;
+    var totalAchieved = 3000;
+    var result = format.getTotalPercentage(totalAchieved, totalTarget);
+    it('is a function', function () {
+      expect(format.getTotalPercentage).to.be.a.function;
+    });
+    it('returns a number', function () {
+      expect(result).to.be.a.number;
+    });
+    it('returns the correct percentage, rounded to 1 decimal', function () {
+      expect(result).to.eql(1.5);
+      expect(format.getTotalPercentage(2800, 65000)).to.eql(4.3);
+      expect(format.getTotalPercentage(5400, 87000)).to.eql(6.2);
+    });
+  });
 });

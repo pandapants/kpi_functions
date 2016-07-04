@@ -45,6 +45,11 @@ format.getYTDPercentage = (totalTarget, YTDTarget) => {
   return +YTDPercentage;
 };
 
+format.getTotalPercentage = (totalAchieved, totalTarget) => {
+  var totalPercentage =  ((totalAchieved / totalTarget) * 100).toFixed(1);
+  return +totalPercentage;
+};
+
 format.getTotalAchieved = (metric, networkData, startDate, todaysDate) => {
 // this.props.state.networkData.[network].[metric].dailyData
 // each metric currently contains a dailyDataArray of 600 days
