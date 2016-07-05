@@ -53,7 +53,12 @@ format.getTotalPercentage = (totalAchieved, totalTarget) => {
 format.getTotalAchieved = (metric, networkData, startDate, todaysDate) => {
 // this.props.state.networkData.[network].[metric].dailyData
 // each metric currently contains a dailyDataArray of 600 days
-
+  _.each(networkData, function (network) {
+    if(network['metric'] !== undefined) {
+      var dailyData = network['metric']['dailyData'];
+      console.log(dailyData[0])
+    }
+  });
 //based on start date and today's date get relevant data under networkData....
 };
 

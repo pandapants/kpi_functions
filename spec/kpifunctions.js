@@ -125,4 +125,5 @@ describe('format', function () {
       expect(format.getTotalPercentage(5400, 87000)).to.eql(6.2);
     });
   });
+  
 });
