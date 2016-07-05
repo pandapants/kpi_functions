@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 var format = require('../kpifunctions.js');
-
+var networkData = require('../data/networkData/newData.js');
 
 // networkData has daily data for period 2016-01-23 - 2016-06-20
 
@@ -20,7 +20,7 @@ describe('format', function () {
     },
     {
       begin: '2016-07-01',
-      end:'2016-07-31'
+      end: '2016-07-31'
     },
     {
       begin: '2016-08-01',
@@ -31,7 +31,7 @@ describe('format', function () {
     var result = format.getStartDate(reportingPeriods);
 
     it('is a function', function () {
-      expect(format.getStartDate).to.be.a.function;
+      expect(format.getStartDate).to.be.a('function');
     });
     it('returns a string', function () {
       expect(result).to.be.a.string;
@@ -43,7 +43,7 @@ describe('format', function () {
   describe('getEndDate', function () {
     var result = format.getEndDate(reportingPeriods);
     it('is a function', function () {
-      expect(format.getEndDate).to.be.a.function;
+      expect(format.getEndDate).to.be.a('function');
     });
     it('returns a string', function () {
       expect(result).to.be.a.string;
@@ -55,7 +55,7 @@ describe('format', function () {
   describe('getReportingYearLength', function () {
     var result = format.getReportingYearLength(reportingPeriods);
     it('is a function', function () {
-      expect(format.getReportingYearLength).to.be.a.function;
+      expect(format.getReportingYearLength).to.be.a('function');
     });
     it('returns a number', function () {
       expect(result).to.be.a.number;
@@ -67,7 +67,7 @@ describe('format', function () {
   describe('getDaysIntoReportingYear', function () {
     var result = format.getDaysIntoReportingYear(reportingPeriods, '2016-06-29');
     it('is a function', function () {
-      expect(format.getDaysIntoReportingYear).to.be.a.function;
+      expect(format.getDaysIntoReportingYear).to.be.a('function');
     });
     it('returns a number', function () {
       expect(result).to.be.a.number;
@@ -83,7 +83,7 @@ describe('format', function () {
 
     var result = format.getYTDTarget(totalTarget, reportingYear, daysIntoYear);
     it('is a function', function () {
-      expect(format.getYTDTarget).to.be.a.function;
+      expect(format.getYTDTarget).to.be.a('function');
     });
     it('returns a number', function () {
       expect(result).to.be.a.number;
@@ -98,7 +98,7 @@ describe('format', function () {
     var result = format.getYTDPercentage(totalTarget, YTDTarget);
 
     it('is a function', function () {
-      expect(format.getYTDPercentage).to.be.a.function;
+      expect(format.getYTDPercentage).to.be.a('function');
     });
     it('returns a number', function () {
       expect(result).to.be.a.number;
@@ -114,10 +114,10 @@ describe('format', function () {
     var totalAchieved = 3000;
     var result = format.getTotalPercentage(totalAchieved, totalTarget);
     it('is a function', function () {
-      expect(format.getTotalPercentage).to.be.a.function;
+      expect(format.getTotalPercentage).to.be.a('function');
     });
     it('returns a number', function () {
-      expect(result).to.be.a.number;
+      expect(result).to.be.a('number');
     });
     it('returns the correct percentage, rounded to 1 decimal', function () {
       expect(result).to.eql(1.5);
@@ -125,5 +125,39 @@ describe('format', function () {
       expect(format.getTotalPercentage(5400, 87000)).to.eql(6.2);
     });
   });
-  
+  describe('getTotalAchieved', function () {
+    var networkData = {
+      "facebook": {
+        "shares": {
+          "dailyData": [
+            {"network":"facebook","metric":"shares","date":1466380800000,"value":112},{"network":"facebook","metric":"shares","date":1466294400000,"value":105},{"network":"facebook","metric":"shares","date":1466208000000,"value":109},{"network":"facebook","metric":"shares","date":1466121600000,"value":143},{"network":"facebook","metric":"shares","date":1466035200000,"value":167}
+          ]
+        }
+      },
+      "twitter": {
+        "shares": {
+          "dailyData": [
+            {"network":"twitter","metric":"shares","date":1466380800000,"value":214},{"network":"twitter","metric":"shares","date":1466294400000,"value":135},{"network":"twitter","metric":"shares","date":1466208000000,"value":209},{"network":"twitter","metric":"shares","date":1466121600000,"value":188},{"network":"twitter","metric":"shares","date":1466035200000,"value":244}
+          ]
+        }
+      },
+      "instagram": {
+        "comments": {
+          "dailyData": [
+            {"network":"instagram","metric":"comments","date":1466380800000,"value":131},{"network":"instagram","metric":"comments","date":1466294400000,"value":165},{"network":"instagram","metric":"comments","date":1466208000000,"value":191},{"network":"instagram","metric":"comments","date":1466121600000,"value":265},{"network":"instagram","metric":"comments","date":1466035200000,"value":246}
+          ]
+        }
+      }
+    };
+    var startDate = 1466294400000; //2016-06-19
+    var todaysDate = 1466380800000; //2016-06-20
+    var result = format.getTotalAchieved('shares', networkData, startDate, todaysDate);
+    it('is a function', function () {
+      expect(format.getTotalAchieved).to.be.a('function');
+    });
+    it('returns the correct total', function () {
+      expect(result).to.eql(566);
+    });
+
+  });
 });

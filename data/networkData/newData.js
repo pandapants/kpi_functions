@@ -85,4 +85,6 @@ var networkData = {
       ]
     }
   }
-}
+};
+
+module.exports = networkData;

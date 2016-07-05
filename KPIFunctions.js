@@ -1,4 +1,5 @@
 var moment = require('moment');
+var _ = require('lodash');
 
 var format = {};
 
@@ -36,30 +37,33 @@ format.getDaysIntoReportingYear = (reportingPeriods, currentDate) => {
 };
 
 format.getYTDTarget = (totalTarget, reportingYearLength, daysIntoYear) => {
-  var YTDTarget = (daysIntoYear / reportingYearLength) * totalTarget;
+  const YTDTarget = (daysIntoYear / reportingYearLength) * totalTarget;
   return Math.round(YTDTarget);
 };
 
 format.getYTDPercentage = (totalTarget, YTDTarget) => {
-  var YTDPercentage =  ((YTDTarget / totalTarget) * 100).toFixed(1);
+  const YTDPercentage =  ((YTDTarget / totalTarget) * 100).toFixed(1);
   return +YTDPercentage;
 };
 
 format.getTotalPercentage = (totalAchieved, totalTarget) => {
-  var totalPercentage =  ((totalAchieved / totalTarget) * 100).toFixed(1);
+  const totalPercentage =  ((totalAchieved / totalTarget) * 100).toFixed(1);
   return +totalPercentage;
 };
 
 format.getTotalAchieved = (metric, networkData, startDate, todaysDate) => {
-// this.props.state.networkData.[network].[metric].dailyData
-// each metric currently contains a dailyDataArray of 600 days
+  let totalAchieved = 0;
   _.each(networkData, function (network) {
-    if(network['metric'] !== undefined) {
-      var dailyData = network['metric']['dailyData'];
-      console.log(dailyData[0])
+    if(network[metric] !== undefined) {
+      var dailyData = network[metric]['dailyData'];
+      _.each(dailyData, function(day) {
+        if(day.date >= startDate && day.date <= todaysDate){
+          totalAchieved += day.value;
+        }
+      });
     }
   });
-//based on start date and today's date get relevant data under networkData....
+  return totalAchieved;
 };
 
 
