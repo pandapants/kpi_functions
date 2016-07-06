@@ -53,7 +53,7 @@ format.getTotalPercentage = (totalAchieved, totalTarget) => {
 
 format.getTotalAchieved = (metric, networkData, startDate, todaysDate) => {
   let totalAchieved = 0;
-  _.each(networkData, function (network) {
+  _.each(networkData, (network) => {
     if(network[metric] !== undefined) {
       var dailyData = network[metric]['dailyData'];
       _.each(dailyData, function(day) {
@@ -66,6 +66,17 @@ format.getTotalAchieved = (metric, networkData, startDate, todaysDate) => {
   return totalAchieved;
 };
 
+format.getRelevantReportingPeriods = (reportingPeriods, todaysDate) => {
+  const today = moment(todaysDate.toString(), 'YYYY-MM-DD');
+  const relevantReportingPeriods = _.reduce(reportingPeriods, (memo, obj) => {
+    const startDate = moment(obj.begin.toString(), 'YYYY-MM-DD');
+    if(moment(startDate).isBefore(today)) {
+      memo.push(obj);
+    }
+    return memo;
+  }, []);
+  return relevantReportingPeriods;
+};
 
 module.exports = format;
 

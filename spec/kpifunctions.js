@@ -86,7 +86,7 @@ describe('format', function () {
       expect(format.getYTDTarget).to.be.a('function');
     });
     it('returns a number', function () {
-      expect(result).to.be.a.number;
+      expect(result).to.be.a('number');
     });
     it('returns the correct YTD target', function () {
       expect(result).to.eql(1370);
@@ -130,21 +130,61 @@ describe('format', function () {
       "facebook": {
         "shares": {
           "dailyData": [
-            {"network":"facebook","metric":"shares","date":1466380800000,"value":112},{"network":"facebook","metric":"shares","date":1466294400000,"value":105},{"network":"facebook","metric":"shares","date":1466208000000,"value":109},{"network":"facebook","metric":"shares","date":1466121600000,"value":143},{"network":"facebook","metric":"shares","date":1466035200000,"value":167}
+            {"network": "facebook", "metric": "shares", "date": 1466380800000, "value": 112}, {
+              "network": "facebook",
+              "metric": "shares",
+              "date": 1466294400000,
+              "value": 105
+            }, {"network": "facebook", "metric": "shares", "date": 1466208000000, "value": 109}, {
+              "network": "facebook",
+              "metric": "shares",
+              "date": 1466121600000,
+              "value": 143
+            }, {"network": "facebook", "metric": "shares", "date": 1466035200000, "value": 167}
           ]
         }
       },
       "twitter": {
         "shares": {
           "dailyData": [
-            {"network":"twitter","metric":"shares","date":1466380800000,"value":214},{"network":"twitter","metric":"shares","date":1466294400000,"value":135},{"network":"twitter","metric":"shares","date":1466208000000,"value":209},{"network":"twitter","metric":"shares","date":1466121600000,"value":188},{"network":"twitter","metric":"shares","date":1466035200000,"value":244}
+            {"network": "twitter", "metric": "shares", "date": 1466380800000, "value": 214}, {
+              "network": "twitter",
+              "metric": "shares",
+              "date": 1466294400000,
+              "value": 135
+            }, {"network": "twitter", "metric": "shares", "date": 1466208000000, "value": 209}, {
+              "network": "twitter",
+              "metric": "shares",
+              "date": 1466121600000,
+              "value": 188
+            }, {"network": "twitter", "metric": "shares", "date": 1466035200000, "value": 244}
           ]
         }
       },
       "instagram": {
         "comments": {
           "dailyData": [
-            {"network":"instagram","metric":"comments","date":1466380800000,"value":131},{"network":"instagram","metric":"comments","date":1466294400000,"value":165},{"network":"instagram","metric":"comments","date":1466208000000,"value":191},{"network":"instagram","metric":"comments","date":1466121600000,"value":265},{"network":"instagram","metric":"comments","date":1466035200000,"value":246}
+            {
+              "network": "instagram",
+              "metric": "comments",
+              "date": 1466380800000,
+              "value": 131
+            }, {
+              "network": "instagram",
+              "metric": "comments",
+              "date": 1466294400000,
+              "value": 165
+            }, {
+              "network": "instagram",
+              "metric": "comments",
+              "date": 1466208000000,
+              "value": 191
+            }, {
+              "network": "instagram",
+              "metric": "comments",
+              "date": 1466121600000,
+              "value": 265
+            }, {"network": "instagram", "metric": "comments", "date": 1466035200000, "value": 246}
           ]
         }
       }
@@ -158,6 +198,26 @@ describe('format', function () {
     it('returns the correct total', function () {
       expect(result).to.eql(566);
     });
-
+  });
+  describe('getRelevantReportingPeriods', function () {
+    var todaysDate = '2016-07-25';
+    var expectedResult = [{
+      begin: '2016-06-01',
+      end: '2016-06-30'
+    },
+      {
+        begin: '2016-07-01',
+        end: '2016-07-31'
+      }];
+    var result = format.getRelevantReportingPeriods(reportingPeriods, todaysDate);
+    it('is a function', function () {
+      expect(format.getRelevantReportingPeriods).to.be.a('function');
+    });
+    it('returns an array', function () {
+      expect(result).to.be.an('array');
+    });
+    it('returns only finished or ongoing reporting periods', function () {
+      expect(result).to.eql(expectedResult);
+    });
   });
 });
