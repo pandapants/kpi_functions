@@ -4,14 +4,6 @@ var expect = require('chai').expect;
 var format = require('../kpifunctions.js');
 var networkData = require('../data/networkData/newData.js');
 
-// networkData has daily data for period 2016-01-23 - 2016-06-20
-
-// want to get:
-// totalAchieved: 4432,
-// totalPercent: 17,
-// YTDTarget: 18000,
-// YTDPercent: 30
-
 describe('format', function () {
   var reportingPeriods = [
     {
@@ -218,6 +210,15 @@ describe('format', function () {
     });
     it('returns only finished or ongoing reporting periods', function () {
       expect(result).to.eql(expectedResult);
+    });
+  });
+  describe('getTotalPeriodTarget', function () {
+    var result = format.getTotalPeriodTarget(5500, reportingPeriods)
+    it('is a function', function () {
+      expect(format.getTotalPeriodTarget).to.be.a('function');
+    });
+    it('returns the correct period target', function () {
+      expect(result).to.eql(1833)
     });
   });
 });

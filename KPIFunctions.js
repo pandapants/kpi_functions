@@ -5,13 +5,11 @@ var format = {};
 
 format.getStartDate = (reportingPeriods) => {
   const startDate = reportingPeriods[0]['begin'];
-
   return startDate;
 };
 
 format.getEndDate = (reportingPeriods) => {
   const endDate = reportingPeriods[reportingPeriods.length - 1]['end'];
-
   return endDate;
 };
 
@@ -77,6 +75,15 @@ format.getRelevantReportingPeriods = (reportingPeriods, todaysDate) => {
   }, []);
   return relevantReportingPeriods;
 };
+
+
+format.getTotalPeriodTarget = (totalTarget, reportingPeriods) => {
+  return Math.round(totalTarget / reportingPeriods.length);
+};
+
+
+
+
 
 module.exports = format;
 
