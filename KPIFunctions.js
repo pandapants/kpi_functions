@@ -80,9 +80,9 @@ format.getPercentageAchieved = (achieved, target) => {
 };
 
 format.getRelevantReportingPeriods = (reportingPeriods, todaysDate) => {
-  const today = moment(todaysDate.toString(), 'YYYY-MM-DD');
+  const today = moment.utc(todaysDate, 'YYYY-MM-DD');
   const relevantReportingPeriods = _.reduce(reportingPeriods, (memo, obj) => {
-    const startDate = moment(obj.begin.toString(), 'YYYY-MM-DD');
+    const startDate = moment(obj.begin, 'YYYY-MM-DD');
     if(moment(startDate).isBefore(today)) {
       memo.push(obj);
     }

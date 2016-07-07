@@ -2,7 +2,6 @@
 
 var expect = require('chai').expect;
 var format = require('../kpifunctions.js');
-var networkData = require('../dummyData/networkData/newData.js');
 
 describe('format', function () {
   var reportingPeriods = [
@@ -270,9 +269,12 @@ describe('format', function () {
     it('returns only finished or ongoing reporting periods', function () {
       expect(result).to.eql(expectedResult);
     });
+    it('returns an empty array when no periods up until today\'s date', function () {
+      expect(format.getRelevantReportingPeriods(reportingPeriods, '2015-01-01')).to.eql([]);
+    });
   });
   describe('getTotalPeriodTarget', function () {
-    var result = format.getTotalPeriodTarget(5500, reportingPeriods)
+    var result = format.getTotalPeriodTarget(5500, reportingPeriods);
     it('is a function', function () {
       expect(format.getTotalPeriodTarget).to.be.a('function');
     });
