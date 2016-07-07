@@ -4,16 +4,20 @@
   "description": "",
   "main": "KPIFunctions.js",
   "scripts": {
-    "test": "mocha ./spec/*.js"
+    "test": "mocha ./spec/*.js",
+    "lint": "semistandard --verbose | snazzy"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "semistandard": "^8.0.0",
+    "snazzy": "^4.0.0"
   },
   "dependencies": {
     "lodash": "^4.13.1",
     "moment": "^2.14.1"
   }
 }
+

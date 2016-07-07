@@ -27,41 +27,56 @@ format.getReportingYearLength = (reportingPeriods) => {
 format.getDaysIntoReportingYear = (reportingPeriods, currentDate) => {
   const startDate = format.getStartDate(reportingPeriods);
 
-  const from = moment(startDate.toString(), 'YYYY-MM-DD');
+  const from = moment(startDate, 'YYYY-MM-DD');
   const to = moment(currentDate, 'YYYY-MM-DD');
   const daysIntoYear = to.diff(from, 'days');
 
   return daysIntoYear + 1;
 };
 
-format.getYTDTarget = (totalTarget, reportingYearLength, daysIntoYear) => {
-  const YTDTarget = (daysIntoYear / reportingYearLength) * totalTarget;
+format.getYTDTarget = (totalYearlyTarget, reportingYearLength, daysIntoYear) => {
+  const YTDTarget = (daysIntoYear / reportingYearLength) * totalYearlyTarget;
   return Math.round(YTDTarget);
 };
 
-format.getYTDPercentage = (totalTarget, YTDTarget) => {
-  const YTDPercentage =  ((YTDTarget / totalTarget) * 100).toFixed(1);
-  return +YTDPercentage;
-};
-
-format.getTotalPercentage = (totalAchieved, totalTarget) => {
-  const totalPercentage =  ((totalAchieved / totalTarget) * 100).toFixed(1);
-  return +totalPercentage;
-};
-
-format.getTotalAchieved = (metric, networkData, startDate, todaysDate) => {
+format.getTotalAchieved = (metric, networkData, startDate, todaysDate, network) => {
   let totalAchieved = 0;
+
+  startDate = moment.utc(startDate);
+  todaysDate = moment.utc(todaysDate);
+
+  if(network !== undefined) {
+    network = network.toLowerCase();
+    if(networkData[network][metric] !== undefined) {
+      let networkSpecificData = networkData[network][metric]['dailyData'];
+      return format.getNetworkTotal(networkSpecificData, startDate, todaysDate);
+    } else {
+      return 'Metric does not exist for selected network';
+    }
+  }
   _.each(networkData, (network) => {
     if(network[metric] !== undefined) {
       var dailyData = network[metric]['dailyData'];
-      _.each(dailyData, function(day) {
-        if(day.date >= startDate && day.date <= todaysDate){
-          totalAchieved += day.value;
-        }
-      });
+      totalAchieved += format.getNetworkTotal(dailyData, startDate, todaysDate);
     }
   });
   return totalAchieved;
+};
+
+format.getNetworkTotal = (dailyDataForMetric, startDate, todaysDate) => {
+  let achieved = 0;
+  _.each(dailyDataForMetric, function(day) {
+    let date = moment.utc(day.date);
+    if((date).isSameOrAfter(startDate) && date.isSameOrBefore(todaysDate)){
+      achieved += day.value;
+    }
+  });
+  return achieved;
+};
+
+format.getPercentageAchieved = (achieved, target) => {
+  const percentage =  ((achieved / target) * 100).toFixed(1);
+  return +percentage;
 };
 
 format.getRelevantReportingPeriods = (reportingPeriods, todaysDate) => {
@@ -76,14 +91,9 @@ format.getRelevantReportingPeriods = (reportingPeriods, todaysDate) => {
   return relevantReportingPeriods;
 };
 
-
-format.getTotalPeriodTarget = (totalTarget, reportingPeriods) => {
-  return Math.round(totalTarget / reportingPeriods.length);
+format.getTotalPeriodTarget = (totalYearlyTarget, reportingPeriods) => {
+  return Math.round(totalYearlyTarget / reportingPeriods.length);
 };
-
-
-
-
 
 module.exports = format;
 
