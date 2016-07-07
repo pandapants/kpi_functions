@@ -42,9 +42,6 @@ format.getYTDTarget = (totalYearlyTarget, reportingYearLength, daysIntoYear) => 
 format.getTotalAchieved = (metric, networkData, startDate, todaysDate, network) => {
   let totalAchieved = 0;
 
-  startDate = moment.utc(startDate);
-  todaysDate = moment.utc(todaysDate);
-
   if(network !== undefined) {
     network = network.toLowerCase();
     if(networkData[network][metric] !== undefined) {
@@ -65,9 +62,12 @@ format.getTotalAchieved = (metric, networkData, startDate, todaysDate, network) 
 
 format.getNetworkTotal = (dailyDataForMetric, startDate, todaysDate) => {
   let achieved = 0;
+  startDate = moment.utc(startDate);
+  todaysDate = moment.utc(todaysDate);
+
   _.each(dailyDataForMetric, function(day) {
     let date = moment.utc(day.date);
-    if((date).isSameOrAfter(startDate) && date.isSameOrBefore(todaysDate)){
+    if(date.isSameOrAfter(startDate) && date.isSameOrBefore(todaysDate)){
       achieved += day.value;
     }
   });

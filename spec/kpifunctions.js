@@ -19,6 +19,109 @@ describe('format', function () {
       end: '2016-08-31'
     }
   ];
+  var networkData = {
+    "facebook": {
+      "shares": {
+        "dailyData": [
+          {
+            "network": "facebook",
+            "metric": "shares",
+            "date": 1466380800000,
+            "value": 112},
+          {
+            "network": "facebook",
+            "metric": "shares",
+            "date": 1466294400000,
+            "value": 105
+          },
+          {
+            "network": "facebook",
+            "metric": "shares",
+            "date": 1466208000000,
+            "value": 109},
+          {
+            "network": "facebook",
+            "metric": "shares",
+            "date": 1466121600000,
+            "value": 143
+          },
+          {
+            "network": "facebook",
+            "metric": "shares",
+            "date": 1466035200000,
+            "value": 167
+          }
+        ]
+      }
+    },
+    "twitter": {
+      "shares": {
+        "dailyData": [
+          {
+            "network": "twitter",
+            "metric": "shares",
+            "date": 1466380800000,
+            "value": 214},
+          {
+            "network": "twitter",
+            "metric": "shares",
+            "date": 1466294400000,
+            "value": 135
+          },
+          {
+            "network": "twitter",
+            "metric": "shares",
+            "date": 1466208000000,
+            "value": 209},
+          {
+            "network": "twitter",
+            "metric": "shares",
+            "date": 1466121600000,
+            "value": 188
+          },
+          {
+            "network": "twitter",
+            "metric": "shares",
+            "date": 1466035200000,
+            "value": 244
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "comments": {
+        "dailyData": [
+          {
+            "network": "instagram",
+            "metric": "comments",
+            "date": 1466380800000,
+            "value": 131
+          }, {
+            "network": "instagram",
+            "metric": "comments",
+            "date": 1466294400000,
+            "value": 165
+          }, {
+            "network": "instagram",
+            "metric": "comments",
+            "date": 1466208000000,
+            "value": 191
+          }, {
+            "network": "instagram",
+            "metric": "comments",
+            "date": 1466121600000,
+            "value": 265
+          },
+          {
+            "network": "instagram",
+            "metric": "comments",
+            "date": 1466035200000,
+            "value": 246
+          }
+        ]
+      }
+    }
+  };
   describe('getStartDate', function () {
     var result = format.getStartDate(reportingPeriods);
 
@@ -52,7 +155,7 @@ describe('format', function () {
     it('returns a number', function () {
       expect(result).to.be.a('number');
     });
-    it('returns the correct number of days', function () {
+    it('returns the correct number of days for reporting year', function () {
       expect(result).to.eql(92);
     });
   });
@@ -64,114 +167,11 @@ describe('format', function () {
     it('returns a number', function () {
       expect(result).to.be.a('number');
     });
-    it('returns the correct number of days', function () {
+    it('returns the correct number of days into reporting year', function () {
       expect(result).to.eql(29);
     });
   });
   describe('getTotalAchieved', function () {
-    var networkData = {
-      "facebook": {
-        "shares": {
-          "dailyData": [
-            {
-              "network": "facebook",
-              "metric": "shares",
-              "date": 1466380800000,
-              "value": 112},
-            {
-              "network": "facebook",
-              "metric": "shares",
-              "date": 1466294400000,
-              "value": 105
-            },
-            {
-              "network": "facebook",
-              "metric": "shares",
-              "date": 1466208000000,
-              "value": 109},
-            {
-              "network": "facebook",
-              "metric": "shares",
-              "date": 1466121600000,
-              "value": 143
-            },
-            {
-              "network": "facebook",
-              "metric": "shares",
-              "date": 1466035200000,
-              "value": 167
-            }
-          ]
-        }
-      },
-      "twitter": {
-        "shares": {
-          "dailyData": [
-            {
-              "network": "twitter",
-              "metric": "shares",
-              "date": 1466380800000,
-              "value": 214},
-            {
-              "network": "twitter",
-              "metric": "shares",
-              "date": 1466294400000,
-              "value": 135
-            },
-            {
-              "network": "twitter",
-              "metric": "shares",
-              "date": 1466208000000,
-              "value": 209},
-            {
-              "network": "twitter",
-              "metric": "shares",
-              "date": 1466121600000,
-              "value": 188
-            },
-            {
-              "network": "twitter",
-              "metric": "shares",
-              "date": 1466035200000,
-              "value": 244
-            }
-          ]
-        }
-      },
-      "instagram": {
-        "comments": {
-          "dailyData": [
-            {
-              "network": "instagram",
-              "metric": "comments",
-              "date": 1466380800000,
-              "value": 131
-            }, {
-              "network": "instagram",
-              "metric": "comments",
-              "date": 1466294400000,
-              "value": 165
-            }, {
-              "network": "instagram",
-              "metric": "comments",
-              "date": 1466208000000,
-              "value": 191
-            }, {
-              "network": "instagram",
-              "metric": "comments",
-              "date": 1466121600000,
-              "value": 265
-            },
-            {
-              "network": "instagram",
-              "metric": "comments",
-              "date": 1466035200000,
-              "value": 246
-            }
-          ]
-        }
-      }
-    };
     var startDate = 1466294400000; //2016-06-19
     var todaysDate = 1466380800000; //2016-06-20
     var result1 = format.getTotalAchieved('shares', networkData, startDate, todaysDate);
@@ -187,6 +187,51 @@ describe('format', function () {
     });
     it('returns the correct total when a network is specified', function () {
       expect(format.getTotalAchieved('shares', networkData, startDate, todaysDate, 'facebook')).to.eql(217);
+    });
+  });
+  describe('getNetworkTotal', function () {
+    var dailyData = [
+      {
+        "network": "facebook",
+        "metric": "shares",
+        "date": 1466380800000,
+        "value": 112},
+      {
+        "network": "facebook",
+        "metric": "shares",
+        "date": 1466294400000,
+        "value": 105
+      },
+      {
+        "network": "facebook",
+        "metric": "shares",
+        "date": 1466208000000,
+        "value": 109},
+      {
+        "network": "facebook",
+        "metric": "shares",
+        "date": 1466121600000,
+        "value": 143
+      },
+      {
+        "network": "facebook",
+        "metric": "shares",
+        "date": 1466035200000,
+        "value": 167
+      }
+    ];
+    var startDate = 1466294400000; //2016-06-19
+    var todaysDate = 1466380800000; //2016-06-20
+    var result1 = format.getNetworkTotal(dailyData, startDate, todaysDate);
+    var result2 = format.getNetworkTotal(dailyData, '2016-06-19', '2016-06-20');
+    it('is a function', function () {
+      expect(format.getNetworkTotal).to.be.a('function');
+    });
+    it('returns the correct total when dates passed as timestamps', function () {
+      expect(result1).to.eql(217);
+    });
+    it('returns the correct total when dates passed as strings', function () {
+      expect(result2).to.eql(217);
     });
   });
   describe('getPercentageAchieved', function () {
