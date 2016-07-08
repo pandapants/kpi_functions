@@ -234,9 +234,9 @@ describe('format', function () {
     });
   });
   describe('getPercentageAchieved', function () {
-    var totalTarget = 200000;
-    var totalAchieved = 3000;
-    var result = format.getPercentageAchieved(totalAchieved, totalTarget);
+    var target = 200000;
+    var achieved = 3000;
+    var result = format.getPercentageAchieved(achieved, target);
     it('is a function', function () {
       expect(format.getPercentageAchieved).to.be.a('function');
     });
